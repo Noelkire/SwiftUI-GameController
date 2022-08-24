@@ -11,6 +11,9 @@
 		50619B9428B2FFFD00FF1827 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50619B9328B2FFFD00FF1827 /* ContentView.swift */; };
 		50619B9628B2FFFE00FF1827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50619B9528B2FFFE00FF1827 /* Assets.xcassets */; };
 		50619B9928B2FFFE00FF1827 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50619B9828B2FFFE00FF1827 /* Preview Assets.xcassets */; };
+		50619BA328B3005200FF1827 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50619BA228B3005200FF1827 /* GameController.framework */; };
+		50619BA528B301EB00FF1827 /* JoyStickManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50619BA428B301EB00FF1827 /* JoyStickManager.swift */; };
+		507AE6E928B60B3800936C57 /* GameComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507AE6E828B60B3800936C57 /* GameComponents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,10 @@
 		50619B9528B2FFFE00FF1827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50619B9828B2FFFE00FF1827 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50619B9A28B2FFFE00FF1827 /* JoyStickUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JoyStickUI.entitlements; sourceTree = "<group>"; };
+		50619BA028B3002700FF1827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		50619BA228B3005200FF1827 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		50619BA428B301EB00FF1827 /* JoyStickManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickManager.swift; sourceTree = "<group>"; };
+		507AE6E828B60B3800936C57 /* GameComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50619BA328B3005200FF1827 /* GameController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +46,7 @@
 			children = (
 				50619B9028B2FFFD00FF1827 /* JoyStickUI */,
 				50619B8F28B2FFFD00FF1827 /* Products */,
+				50619BA128B3005200FF1827 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,7 +61,10 @@
 		50619B9028B2FFFD00FF1827 /* JoyStickUI */ = {
 			isa = PBXGroup;
 			children = (
+				50619BA028B3002700FF1827 /* Info.plist */,
 				50619B9128B2FFFD00FF1827 /* JoyStickUIApp.swift */,
+				50619BA428B301EB00FF1827 /* JoyStickManager.swift */,
+				507AE6E828B60B3800936C57 /* GameComponents.swift */,
 				50619B9328B2FFFD00FF1827 /* ContentView.swift */,
 				50619B9528B2FFFE00FF1827 /* Assets.xcassets */,
 				50619B9A28B2FFFE00FF1827 /* JoyStickUI.entitlements */,
@@ -67,6 +79,14 @@
 				50619B9828B2FFFE00FF1827 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50619BA128B3005200FF1827 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50619BA228B3005200FF1827 /* GameController.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				50619B9428B2FFFD00FF1827 /* ContentView.swift in Sources */,
+				50619BA528B301EB00FF1827 /* JoyStickManager.swift in Sources */,
 				50619B9228B2FFFD00FF1827 /* JoyStickUIApp.swift in Sources */,
+				507AE6E928B60B3800936C57 /* GameComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +296,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JoyStickUI/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,6 +325,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JoyStickUI/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
