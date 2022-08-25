@@ -9,17 +9,18 @@ import SwiftUI
 
 // Visual effect est la pour rendre le fond effet transparent
 struct VisualEffect: NSViewRepresentable {
-    var window:NSWindow?
-    
-    init() {
-        self.window = NSWindow()
-    }
+    @State var window:NSWindow
     
   func makeNSView(context: Self.Context) -> NSView {
       let view = NSView()
+      window.backgroundColor = .clear
+      window.styleMask = [.hudWindow,.fullSizeContentView]
+      
       let vfx = NSVisualEffectView()
       vfx.material = .hudWindow
-      vfx.state = NSVisualEffectView.State.active  // this is this state which says transparent all of the time
+      vfx.state = NSVisualEffectView.State.active
+      
+      view.addSubview(vfx)
       return vfx }
 
   func updateNSView(_ nsView: NSView, context: Context) { }
@@ -27,10 +28,13 @@ struct VisualEffect: NSViewRepresentable {
 
 @main
 struct JoyStickUIApp: App {
+    @State var window = NSWindow()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .background(VisualEffect())
+            ContentView(window: $window)
+                .background(Color.clear)
+                .background(VisualEffect(window: window))
         }
         .windowStyle(.hiddenTitleBar)
     }

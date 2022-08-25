@@ -10,14 +10,14 @@ import GameController
 
 class JoystickManager:ObservableObject {
     // Game Controller Properties
-    @Published var gameControllerMapping = [Component(type: .thumbstick, name: "Left"),
-                                            Component(type: .thumbstick, name: "Right"),
-                                            Component(type: .shoulder, name: "Left"),
-                                            Component(type: .shoulder, name: "Right"),
-                                            Component(type: .trigger, name: "Left"),
-                                            Component(type: .trigger, name: "Right"),
-                                            Component(type: .button, name: "Menu"),
-                                            Component(type: .button, name: "Options")
+    @Published var gameControllerMapping = [Component(type: .thumbstick, name: "l"),
+                                            Component(type: .thumbstick, name: "r"),
+                                            Component(type: .shoulder, name: "lb.rectangle.roundedbottom"),
+                                            Component(type: .shoulder, name: "rb.rectangle.roundedbottom"),
+                                            Component(type: .trigger, name: "lt.rectangle.roundedtop"),
+                                            Component(type: .trigger, name: "rt.rectangle.roundedtop"),
+                                            Component(type: .button, name: "rectangle.on.rectangle.circle"),
+                                            Component(type: .button, name: "line.3.horizontal.circle")
     ]
     
     init() {

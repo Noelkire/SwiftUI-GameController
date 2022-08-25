@@ -9,10 +9,16 @@ import SwiftUI
 import GameController
 
 struct ContentView: View {
+    @Binding var window:NSWindow
+    
     @ObservedObject var joystick = JoystickManager()
     
     var body: some View {
         VStack{
+            Image(systemName: "logo.xbox")
+                .resizable()
+                .frame(width: 50,height:50)
+                .foregroundColor(.black)
             HStack{
                 VStack{
                     TriggerButtonView(button: joystick.gameControllerMapping[4])
@@ -30,14 +36,17 @@ struct ContentView: View {
                 ThumbstickView(thumbstick: joystick.gameControllerMapping[1])
             }
         }
+        .ignoresSafeArea()
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification), perform: { _ in
+                        NSApp.mainWindow?.standardWindowButton(.zoomButton)?.isHidden = true
+                        NSApp.mainWindow?.standardWindowButton(.closeButton)?.isHidden = true
+                        NSApp.mainWindow?.standardWindowButton(.miniaturizeButton)?.isHidden = true
+                    })
+        .padding()
+        .frame(width: 400)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
 
 struct ThumbstickView: View {
     let width:CGFloat = 80.0
@@ -69,11 +78,11 @@ struct SecondaryButtonView: View {
     
     var body: some View {
         VStack{
-            Text("\(button.name) Button")
             Text("\(button.isPressed.description)")
-            Circle()
-                .foregroundColor(button.isPressed ? .black:.gray)
-                .frame(width: width,height: width)
+            Image(systemName: button.isPressed ? "\(button.name).fill":"\(button.name)")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width:20,height:20)
         }
     }
 }
@@ -84,11 +93,11 @@ struct ShoulderButtonView: View {
     
     var body: some View {
         VStack{
-            Text("\(button.name) Shoulder")
             Text("\(button.isPressed.description)")
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(button.isPressed ? .black:.gray)
-                .frame(width: width,height: 30)
+            Image(systemName: button.isPressed ? "\(button.name).fill":"\(button.name)")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width:40,height:40)
         }
     }
 }
@@ -98,12 +107,9 @@ struct TriggerButtonView: View {
     var button:Component
     
     var body: some View {
-        VStack{
-            Text("\(button.name) Trigger")
-            Text("\(button.isPressed.description)")
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(button.isPressed ? .black:.gray)
-                .frame(width: 50,height: height)
-        }
+        Image(systemName: button.isPressed ? "\(button.name).fill":"\(button.name)")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width:40,height:40)
     }
 }
